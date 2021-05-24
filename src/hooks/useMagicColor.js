@@ -23,20 +23,20 @@ function randomColor2(curentColor) {
 }
 
 
-function useMagicColor(props) {
+function useMagicColor() {
   const [color, setColor] = useState('transparent');
   const colorRef = useRef('transparent');
 
 
   // change color every 1 second 
   useEffect(() => {
-    const colorInterval = setInterval(() => {
-      console.log('First Color: ', color);
-      console.log('Change Color: ', colorRef.current);
+    const colorInterval = setTimeout(() => {
+      // console.log('First Color: ', color); 
+      // console.log('Change Color: ', colorRef.current);
       // const newColor = randomColor();
       const newColor = randomColor2(colorRef.current);
       setColor(newColor);
-      console.log('after random Color: ', color);
+      // console.log('after random Color: ', color); 
       colorRef.current = newColor;
     }, 3000);
 
@@ -44,9 +44,9 @@ function useMagicColor(props) {
       clearInterval(colorInterval);
     }
 
-  }, [])
+  }, [color])
 
-  console.log("Out side Effect, color: ", color);
+  // console.log("Out side Effect, color: ", color);
   return color;
 }
 
