@@ -1,0 +1,25 @@
+img {
+  animation: mymove 2s;
+  filter: grayscale(1) brightness(0.5);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+footer {
+  visibility: hidden;
+}
+
+.card:hover  footer {
+  visibility: visible;
+}
+
+img:hover {
+  filter: grayscale(0);
+}
+
+
+@keyframes mymove {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

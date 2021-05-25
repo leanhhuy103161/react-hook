@@ -7,6 +7,7 @@ import queryString from 'query-string'
 import PostFiltersForm from '../components/PostFiltersForm';
 import Clock from '../components/Clock';
 import MagicBox from '../components/MagicBox'
+import Hero from '../components/Hero'
 
 function OldSection() {
 
@@ -63,6 +64,7 @@ function OldSection() {
     })
   }
 
+  const [count, setCount] = useState(0);
   const [showClock, setShowClock] = useState(true);
 
   return (
@@ -79,6 +81,10 @@ function OldSection() {
       <Pagination 
         pagination={pagination}
         onPageChange={handlePageChange}/>
+      <h1>React-hook</h1>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <Hero name="Le Anh Huy" />
     </div>
   );
 }

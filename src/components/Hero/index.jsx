@@ -21,4 +21,4 @@ function Hero(props) {
   )
 }
 
-export default React.memo(Hero);
+export default React.memo(Hero);  
