@@ -13,13 +13,9 @@ ImageList.defaultProps = {
   activeId: null,
   onChangeImageClick: null,
 };
-// {imageList.map((image, index) => (
-//   <img key={index} src={image.image} alt="random-img" width="100%"/>
-// ))}
+
 function ImageList(props) {
   const { imageList, onChangeImageClick } = props;
-
-  console.log(imageList);
 
   const handleClick = (hobby) => {
     if (!onChangeImageClick) {

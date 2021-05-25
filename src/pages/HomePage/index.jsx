@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import './HomePage.css'
+
 import HobbyList from '../../components/Home/HobbyList'
 import { addNewHobby, setActiveHobby } from '../../actions/hobby'
+import './HomePage.css'
 
 const randomNumber = () => {
   return 1000 + Math.trunc((Math.random() * 9000))

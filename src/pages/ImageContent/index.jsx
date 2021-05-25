@@ -1,34 +1,37 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { addNewImage, changeImage } from "../../actions/hobby";
 import ImageList from "../../components/Home/ImageList";
 import './ImageContent.css'
 
-function ImageContent() {
-  const imageList = useSelector((state) => {
-    return state.image.list;
-  });
+function ImageContent({imageList, changeImage, addNewImage}) {
+  // const imageList = useSelector((state) => {
+  //   return state.image.list;
+  // });
 
-  const dispatch = useDispatch();
-
+  // const dispatch = useDispatch();
   const handleAddImageClick = () => {
     console.log("handleAddHobbyClick");
     const newImage = {
-      image: "https://source.unsplash.com/random",
+      image: "https://images.pexels.com/photos/1645822/pexels-photo-1645822.jpeg?cs=srgb&dl=pexels-min-an-1645822.jpg&fm=jpg",
     };
     // dispatch action to add a new image to redux store, imageReducer
-    const action = addNewImage(newImage);
-    dispatch(action);
+    addNewImage(newImage);
+    // dispatch(action);
   };
 
   const handleChangeImageClick = (image) => {
     const action = changeImage(image);
-    dispatch(action);
+    // dispatch(action);
   };
 
   return (
     <div>
       <div className="container">
+        <button 
+          className="btn btn-dark btn-lg btn-block"
+          onClick={handleAddImageClick}>Add Image</button>
         <div className="row">
           <ImageList
             imageList={imageList}
