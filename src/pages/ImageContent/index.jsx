@@ -1,16 +1,30 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { connect } from 'react-redux'
 
-import { addNewImage, changeImage } from "../../actions/hobby";
+import { addNewImage, changeImage } from '../../actions/image'
 import ImageList from "../../components/Home/ImageList";
 import './ImageContent.css'
 
+
+const mapStateToProps = (state) => {
+  return {
+    imageList: state.image.list,
+  }
+}
+
+const mapDispatchToProps = {
+  addNewImage,
+  changeImage,
+}
+
+
 function ImageContent({imageList, changeImage, addNewImage}) {
+
   // const imageList = useSelector((state) => {
   //   return state.image.list;
   // });
-
   // const dispatch = useDispatch();
+
   const handleAddImageClick = () => {
     console.log("handleAddHobbyClick");
     const newImage = {
@@ -43,4 +57,4 @@ function ImageContent({imageList, changeImage, addNewImage}) {
   );
 }
 
-export default ImageContent;
+export default connect(mapStateToProps, mapDispatchToProps)(ImageContent);  

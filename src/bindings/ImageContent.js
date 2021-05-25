@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addNewImage, changeImage } from '../actions/hobby'
+import { addNewImage, changeImage } from '../actions/image'
 import ImageContent from '../pages/ImageContent'
 
 const mapStateToProps = (state) => {
