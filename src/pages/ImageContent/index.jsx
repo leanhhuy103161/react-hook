@@ -5,7 +5,6 @@ import { addNewImage, changeImage } from '../../actions/image'
 import ImageList from "../../components/Home/ImageList";
 import './ImageContent.css'
 
-
 const mapStateToProps = (state) => {
   return {
     imageList: state.image.list,
@@ -27,11 +26,13 @@ function ImageContent({imageList, changeImage, addNewImage}) {
 
   const handleAddImageClick = () => {
     console.log("handleAddHobbyClick");
+    console.log("all image: ", imageList);
     const newImage = {
-      image: "https://images.pexels.com/photos/1645822/pexels-photo-1645822.jpeg?cs=srgb&dl=pexels-min-an-1645822.jpg&fm=jpg",
+      id: imageList.length + 1,
+      url: "https://images.pexels.com/photos/1645822/pexels-photo-1645822.jpeg?cs=srgb&dl=pexels-min-an-1645822.jpg&fm=jpg",
     };
     // dispatch action to add a new image to redux store, imageReducer
-    addNewImage(newImage);
+    // addNewImage(newImage);
     // dispatch(action);
   };
 

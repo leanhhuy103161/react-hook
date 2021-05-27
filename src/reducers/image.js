@@ -1,22 +1,22 @@
 const initialState = {
   list: [
-    {image: 'https://source.unsplash.com/random?v=1'},
-    {image: 'https://source.unsplash.com/random?v=2'},
-    {image: 'https://source.unsplash.com/random?v=3'},
-    {image: 'https://source.unsplash.com/random?v=4'},
-    {image: 'https://source.unsplash.com/random?v=5'},
-    {image: 'https://source.unsplash.com/random?v=6'},
-    {image: 'https://source.unsplash.com/random?v=7'},
-    {image: 'https://source.unsplash.com/random?v=8'},
-    {image: 'https://source.unsplash.com/random?v=9'},
-    {image: 'https://source.unsplash.com/random?v=10'},
-    {image: 'https://source.unsplash.com/random?v=11'},
-    {image: 'https://source.unsplash.com/random?v=12'},
-    {image: 'https://source.unsplash.com/random?v=13'},
-    {image: 'https://source.unsplash.com/random?v=14'},
-    {image: 'https://source.unsplash.com/random?v=15'},
+    // {id: 1000, author: "lorem", image: 'https://source.unsplash.com/random?v=1'},
+    // {id: 1001, author: "lorem", image: 'https://source.unsplash.com/random?v=2'},
+    // {id: 1002, author: "lorem", image: 'https://source.unsplash.com/random?v=3'},
+    // {id: 1003, author: "lorem", image: 'https://source.unsplash.com/random?v=4'},
+    // {id: 1004, author: "lorem", image: 'https://source.unsplash.com/random?v=5'},
+    // {id: 1005, author: "lorem", image: 'https://source.unsplash.com/random?v=6'},
+    // {id: 1006, author: "lorem", image: 'https://source.unsplash.com/random?v=7'},
+    // {id: 1007, author: "lorem", image: 'https://source.unsplash.com/random?v=8'},
+    // {id: 1008, author: "lorem", image: 'https://source.unsplash.com/random?v=9'},
+    // {id: 1009, author: "lorem", image: 'https://source.unsplash.com/random?v=10'},
+    // {id: 1010, author: "lorem", image: 'https://source.unsplash.com/random?v=11'},
+    // {id: 1011, author: "lorem", image: 'https://source.unsplash.com/random?v=12'},
+    // {id: 1012, author: "lorem", image: 'https://source.unsplash.com/random?v=13'},
+    // {id: 1013, author: "lorem", image: 'https://source.unsplash.com/random?v=14'},
+    // {id: 1014, author: "lorem", image: 'https://source.unsplash.com/random?v=15'},
   ],
-  activedId: null
+  load: false
 }
 
 const imageReducer = (state = initialState, action) => {
@@ -32,6 +32,22 @@ const imageReducer = (state = initialState, action) => {
 
     case 'CHANGE_IMAGE': {
       return state;
+    }
+
+    case 'GET_IMAGE_FROM_API': {
+      return {
+        ...state,
+        load: true,
+      };
+    }
+
+    case 'GET_IMAGE_FROM_API_SUCCESS': {
+      const data = action.payload;
+      return {
+        ...state,
+        list: data,
+        load: false,
+      };
     }
 
     default:
