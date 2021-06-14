@@ -24,9 +24,10 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul className="navbar-nav">
-            <CustomLink activeOnlyWhenExact={true} to="/" label="Home" />
+            <CustomLink activeOnlyWhenExact={true} to="/" label="home" />
             <CustomLink to="/about" label="About" />
             <CustomLink to="/contact" label="Contact" />
+            <CustomLink to="/dashboard" label="Dashboard" />
           </ul>
         </nav>
     </div>

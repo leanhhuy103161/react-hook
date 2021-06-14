@@ -7,14 +7,14 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ImageContent from './pages/ImageContent'
 import NoMatch from './pages/NoMatch';
-
-
-
+import Sidebar from './components/Sidebar'
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container-fluid">
+        <Navbar />
          {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -24,17 +24,20 @@ function App() {
         */}
         <Switch>
           <Route exact path="/">
-            <Navbar />
+            {/* <Sidebar /> */}
             <FormSubmit />
             <ImageContent />
           </Route>
           <Route path="/about">
-            <Navbar />
+            {/* <Sidebar /> */}
             <About />
           </Route>
           <Route path="/contact">
-            <Navbar />
+            {/* <Sidebar /> */}
             <Contact />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="*">
             <NoMatch />
